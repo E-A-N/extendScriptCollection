@@ -9,18 +9,18 @@ var getParent = function(prop){
 
 var activeItem = app.project.activeItem;
 if (activeItem !== null && activeItem instanceof CompItem){
-  var sel = activeItem.selectedProperties;
-    if(sel){
-      var prevLayerIndex = -1;
-      for(var i = 0 ; i < sel.length ; i++){
-        if(sel[i].propertyValueType){
-          if(getParentLayer(sel[i]).index != prevLayerIndex){
-            $.writeln("\n====================");
-            $.writeln(getParentLayer(sel[i]).name);
-            $.writeln("====================");
-            prevLayerIndex = getParentLayer(sel[i]).index;
+  var select = activeItem.selectedProperties;
+    if(select){
+      var previous= -1;
+      for(var i = 0 ; i < select.length ; i++){
+        if(select[i].propertyValueType){
+          if(getParentLayer(select[i]).index != previous){
+            print("\n====================");
+            print(getParentLayer(select[i]).name);
+            print("====================");
+            previous  = getParentLayer(select[i]).index;
           }
-          $.writeln(sel[i].name + ': ' + String(sel[i].value));
+          print(select[i].name + ': ' + String(select[i].value));
         }
       }
     }
